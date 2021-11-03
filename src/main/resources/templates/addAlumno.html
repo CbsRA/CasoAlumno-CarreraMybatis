@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="plantilla::head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container" th:replace="plantilla::menu"></div>
+        <div class="container" style="max-width: 400px; margin-top: 50px">
+            <div class="card">
+                <div class="card-header">
+                    Registrar Alumno
+                </div>
+                <div class="card-body">
+                    <form action="/addAlumno" method="alumno">
+                        <div class="mb-3">
+                            <select name="idcarrera" id="idcarre" class="form-control">
+                                <option value="0">-Seleccionar Carrera-</option>                                
+                                <option th:each="carre : ${carreras}" th:value="${carre.idcarrera}" th:text="${carre.nombre}" th:selected="false"/>                              
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control m-25" name="nombre" placeholder="Alumno">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="correo" placeholder="Correo">        
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="telefono" placeholder="Telefono">        
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Guardar">
+                    </form>
+                </div>
+            </div>
+    </body>
+</html>
